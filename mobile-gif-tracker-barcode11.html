@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- a frame library -->
+		<script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
+		<!-- ar.js library -->
+		<script src="https://raw.githack.com/jeromeetienne/AR.js/2.1.4/aframe/build/aframe-ar.js"></script>
+        <!-- include GIF support for A-Frame. Needs lower aframe version? -->
+    	<script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+	</head>
+	<!-- defining the body  -->
+	<body>
+		<a-scene
+			embedded
+			arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;"
+		>				
+            <a-assets>
+                <img id="earthflow" src="2020-2023-DSM-hillshade.gif">
+            </a-assets>
+
+
+			<!-- marker number 4 with value 11-->
+			<a-marker id="marker4" type="barcode" value="11">
+				<a-entity 
+                    geometry="primitive:plane;width:7;height:4;" 
+                    position="-4.5 0.5 -0.5" 
+                    rotation="-90 0 0" 
+                    material="shader:gif;src:#earthflow;alphaTest:0.5;">
+                </a-entity -->
+			</a-marker>
+
+			<a-entity camera></a-entity>
+		</a-scene>
+	</body>
+</html> 
